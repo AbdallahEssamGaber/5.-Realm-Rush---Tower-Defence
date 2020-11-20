@@ -22,6 +22,9 @@ public class cubeEditor : MonoBehaviour
 
         
         textMesh = GetComponentInChildren<TextMesh>();
-        textMesh.text = snap.x / grideSize + "," + snap.z / grideSize;
+
+        string labelText = snap.x / grideSize + "," + snap.z / grideSize;
+        textMesh.text = labelText;
+        gameObject.name = labelText;
     }
 }
