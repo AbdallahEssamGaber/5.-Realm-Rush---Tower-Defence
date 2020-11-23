@@ -56,8 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\enemy.cs" />
-    <Compile Include="Assets\cubeEditor.cs" />
+    <Compile Include="Assets\CubeEditor.cs" />
     <Compile Include="Assets\Waypoint.cs" />
+    <Compile Include="Assets\PathFinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
