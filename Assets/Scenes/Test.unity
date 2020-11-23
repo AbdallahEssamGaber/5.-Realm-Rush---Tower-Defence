@@ -1039,9 +1039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f09a0e542ad5a448a7022981d6627c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube:
-  - {fileID: 1755338094}
-  - {fileID: 343653685}
+  StartCube: {fileID: 1755338094}
+  EndCube: {fileID: 343653685}
 --- !u!1001 &548082585774390104
 PrefabInstance:
   m_ObjectHideFlags: 0

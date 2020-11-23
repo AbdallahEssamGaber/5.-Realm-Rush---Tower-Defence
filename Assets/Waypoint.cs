@@ -8,12 +8,10 @@ public class Waypoint : MonoBehaviour
     const int grideSize = 10;
 
     
-    public void SetColor(Waypoint start, Color startColor, Waypoint end, Color endColor)
+    public void SetColor(Color color)
     {
-        MeshRenderer startMeshRander = start.transform.Find("top").GetComponent<MeshRenderer>();
-        startMeshRander.material.color = startColor;
-        MeshRenderer endMeshRander = end.transform.Find("top").GetComponent<MeshRenderer>();
-        endMeshRander.material.color = endColor;
+        MeshRenderer meshRenderer = transform.Find("top").GetComponent<MeshRenderer>();
+        meshRenderer.material.color = color;
     }
 
 

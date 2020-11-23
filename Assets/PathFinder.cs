@@ -1,22 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
 
-    [SerializeField] List<Waypoint> cube;
+    [SerializeField] Waypoint StartCube, EndCube;
 
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     
 
     void Start()
     {
-        
+        Coloring();
         CountBlocks();
     }
 
-
+    void Coloring()
+    {
+        StartCube.SetColor(Color.green);    //StartCube an object have an script have this func
+        EndCube.SetColor(Color.red);        //EndCube an object have an script have this func
+    }
 
     void CountBlocks()
      {
@@ -31,7 +36,6 @@ public class PathFinder : MonoBehaviour
             }
             else
             {
-                waypoint.SetColor(cube[0], Color.green, cube[1], Color.red);
                 grid.Add(gridPos, waypoint);
             }
         }
