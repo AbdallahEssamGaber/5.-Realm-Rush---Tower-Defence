@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,8 +27,8 @@ public class Waypoint : MonoBehaviour
     {
         return new Vector2Int(
 
-             Mathf.RoundToInt(transform.position.x / grideSize) * grideSize,
-             Mathf.RoundToInt(transform.position.z / grideSize) * grideSize
+             Mathf.RoundToInt(transform.position.x / grideSize),
+             Mathf.RoundToInt(transform.position.z / grideSize)
 
             );
     }

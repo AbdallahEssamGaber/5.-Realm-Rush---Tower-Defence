@@ -9,12 +9,47 @@ public class PathFinder : MonoBehaviour
     [SerializeField] Waypoint StartCube, EndCube;
 
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
-    
+
+
+    Vector2Int[] directions = {
+        Vector2Int.up,
+        Vector2Int.down,
+        Vector2Int.right,
+        Vector2Int.left
+    };
+
+
+    string[] dirNames = {       //Adding the names to know what side there is no cube in it
+        "Up",
+        "Down",
+        "Right",
+        "Left"
+    };
 
     void Start()
     {
         Coloring();
         CountBlocks();
+        ExploreNeighbour();
+    }
+
+    void ExploreNeighbour()
+    {
+        int timesInLoop = 0;        //Get the time in the foreach so it can decide what side
+        foreach (Vector2Int direction in directions)
+        {
+            
+            Vector2Int exploredCoor = StartCube.GetGridPos() + direction;
+            try
+            {
+                grid[exploredCoor].SetColor(Color.white);
+            }
+            catch
+            {
+                Debug.LogWarning("There is no cube in " + dirNames[timesInLoop] + "Side, U GONNA FALL OFF!!");
+            }
+            timesInLoop++;          //Increasing it cuz that's a loop
+        }
     }
 
     void Coloring()

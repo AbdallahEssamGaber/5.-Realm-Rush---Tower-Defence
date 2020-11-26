@@ -10,10 +10,10 @@ public class enemy : MonoBehaviour
     void Start()
     {
         
-        //StartCoroutine(FollowPath());
+        StartCoroutine(FollowPath());
 
     }
-    /*
+    
     IEnumerator FollowPath()
     {
         print("Strating patrol....");
@@ -29,5 +29,5 @@ public class enemy : MonoBehaviour
         }
         print("Ending patrol");
     }
-    */
+    
 }
