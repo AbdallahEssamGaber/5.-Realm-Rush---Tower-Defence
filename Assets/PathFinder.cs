@@ -11,18 +11,20 @@ public class PathFinder : MonoBehaviour
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
 
 
+    [SerializeField] Waypoint cube;
+
     Vector2Int[] directions = {
-        Vector2Int.up,
-        Vector2Int.down,
+        Vector2Int.up, 
         Vector2Int.right,
+        Vector2Int.down,
         Vector2Int.left
     };
 
 
     string[] dirNames = {       //Adding the names to know what side there is no cube in it
         "Up",
-        "Down",
         "Right",
+        "Down",
         "Left"
     };
 
@@ -36,6 +38,7 @@ public class PathFinder : MonoBehaviour
     void ExploreNeighbour()
     {
         int timesInLoop = 0;        //Get the time in the foreach so it can decide what side
+        int gridSize = StartCube.GetGrideSize();
         foreach (Vector2Int direction in directions)
         {
             
@@ -46,7 +49,13 @@ public class PathFinder : MonoBehaviour
             }
             catch
             {
-                Debug.LogWarning("There is no cube in " + dirNames[timesInLoop] + "Side, U GONNA FALL OFF!!");
+                Waypoint newCube = Instantiate(cube, new Vector3(exploredCoor.x * gridSize, 0, exploredCoor.y * 10) , Quaternion.identity);
+                newCube.transform.parent = gameObject.transform;
+
+                grid.Add(newCube.GetGridPos(), newCube);
+                newCube.SetColor(Color.yellow);
+
+                Debug.LogWarning("There is no cube in " + dirNames[timesInLoop] + "Side, I ADDED ONE FOR U :)");
             }
             timesInLoop++;          //Increasing it cuz that's a loop
         }
