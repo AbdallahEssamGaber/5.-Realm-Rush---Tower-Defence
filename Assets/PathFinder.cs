@@ -9,9 +9,9 @@ public class PathFinder : MonoBehaviour
     [SerializeField] Waypoint StartCube, EndCube;
 
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
+    Queue<Waypoint> queue = new Queue<Waypoint>();
 
-
-    [SerializeField] Waypoint cube; //This for the prefab cube to make new one
+    [SerializeField] bool isRunning = true;
 
     Vector2Int[] directions = {
         Vector2Int.up, 
@@ -21,24 +21,38 @@ public class PathFinder : MonoBehaviour
     };
 
 
-    string[] dirNames = {       //Adding the names to know what side there is no cube in it
-        "Up",
-        "Right",
-        "Down",
-        "Left"
-    };
-
     void Start()
     {
-        Coloring();
         CountBlocks();
-        ExploreNeighbour();
+        Coloring();
+        PathFinde();
+        //ExploreNeighbour();
+    }
+
+    void PathFinde()
+    {
+        queue.Enqueue(StartCube);
+        while (queue.Count > 0)
+        {
+            var searchCenter = queue.Dequeue();
+            print(searchCenter);
+            HalfIfEndFound(searchCenter);
+        }
+
+        
+    }
+
+    void HalfIfEndFound(Waypoint searchCenter)
+    {
+        if (searchCenter == EndCube)
+        {
+            print("Stopped it's The same!");
+            isRunning = false;
+        }
     }
 
     void ExploreNeighbour()
     {
-        int timesInLoop = 0;        //Get the time in the foreach so it can decide what side
-        int gridSize = StartCube.GetGrideSize();    //This for gettign the grid size to multiply by the postition to make grid size
         foreach (Vector2Int direction in directions)
         {
             
@@ -49,16 +63,9 @@ public class PathFinder : MonoBehaviour
             }
             catch
             {
-               
-                Waypoint newCube = Instantiate(cube, new Vector3(exploredCoor.x * gridSize, 0, exploredCoor.y * 10) , Quaternion.identity);     //Make a new cube with right coor
-                newCube.transform.parent = gameObject.transform;    //Put it child to World object
-
-                grid.Add(newCube.GetGridPos(), newCube);    //And then add it to the dictionary to color it 
-                newCube.SetColor(Color.yellow);         //Coloring it
-
-                Debug.LogWarning("There is no cube in " + dirNames[timesInLoop] + "Side, I ADDED ONE FOR U :)");
+        
+                Debug.LogWarning("There is no cube in " + exploredCoor + " U ARE GONNA FALL OFF");
             }
-            timesInLoop++;          //Increasing it cuz that's a loop
         }
     }
 
