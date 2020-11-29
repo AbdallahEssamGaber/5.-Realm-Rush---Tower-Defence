@@ -6,6 +6,8 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
 
+    public bool isEplored = false;
+
     const int grideSize = 10;
 
     

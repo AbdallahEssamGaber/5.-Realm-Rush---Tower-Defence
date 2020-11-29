@@ -24,22 +24,22 @@ public class PathFinder : MonoBehaviour
     void Start()
     {
         CountBlocks();
-        Coloring();
         PathFinde();
-        //ExploreNeighbour();
+        Coloring();
     }
 
     void PathFinde()
     {
         queue.Enqueue(StartCube);
-        while (queue.Count > 0)
+        while (queue.Count > 0 && isRunning)
         {
             var searchCenter = queue.Dequeue();
-            print(searchCenter);
+            print("Searching from: " +  searchCenter);
             HalfIfEndFound(searchCenter);
+            ExploreNeighbor(searchCenter);
+            searchCenter.isEplored = true;
         }
 
-        
     }
 
     void HalfIfEndFound(Waypoint searchCenter)
@@ -51,22 +51,38 @@ public class PathFinder : MonoBehaviour
         }
     }
 
-    void ExploreNeighbour()
+    void ExploreNeighbor(Waypoint searchCenter) 
     {
+        if (!isRunning) { return; };
         foreach (Vector2Int direction in directions)
         {
             
-            Vector2Int exploredCoor = StartCube.GetGridPos() + direction;
+            Vector2Int neighborCoor = searchCenter.GetGridPos() + direction;
             try
             {
-                grid[exploredCoor].SetColor(Color.white);
+                QueueNewNeighbour(neighborCoor);
             }
             catch
             {
-        
-                Debug.LogWarning("There is no cube in " + exploredCoor + " U ARE GONNA FALL OFF");
+               
             }
         }
+    }
+
+    void QueueNewNeighbour(Vector2Int exploredCoor)
+    {
+        Waypoint neighbour = grid[exploredCoor];
+        if (neighbour.isEplored)
+        {
+            return;
+        }
+        else
+        {
+            neighbour.SetColor(Color.blue);
+            queue.Enqueue(neighbour);
+            print("Queueing : " + neighbour);
+        }
+        
     }
 
     void Coloring()
@@ -92,7 +108,6 @@ public class PathFinder : MonoBehaviour
             }
         }
 
-        print(grid.Count);
       }
 
     

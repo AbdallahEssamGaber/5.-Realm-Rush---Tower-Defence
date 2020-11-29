@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemy : MonoBehaviour
 {
 
+
     [SerializeField] List<Waypoint> path;
 
     void Start()
