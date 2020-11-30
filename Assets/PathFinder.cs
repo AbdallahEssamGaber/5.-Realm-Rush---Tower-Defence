@@ -6,7 +6,7 @@ using UnityEngine;
 public class PathFinder : MonoBehaviour
 {
 
-     [SerializeField] public Waypoint StartCube, EndCube;
+     [SerializeField] public Waypoint StartCube, EndCube;   //Public cuz i want to use it in enemy script
 
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();

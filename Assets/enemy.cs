@@ -36,7 +36,7 @@ public class enemy : MonoBehaviour
 
     void ColoringBypassing(Waypoint waypoint)
     {
-        if(waypoint != pathFinder.StartCube && waypoint != pathFinder.EndCube)
+        if(waypoint != pathFinder.StartCube && waypoint != pathFinder.EndCube)  //Coloring passing waypoints unless start&end one
         {
             waypoint.SetColor(Color.blue);
         }
