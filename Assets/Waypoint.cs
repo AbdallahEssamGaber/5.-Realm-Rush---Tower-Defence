@@ -7,14 +7,17 @@ public class Waypoint : MonoBehaviour
 {
 
     public bool isEplored = false;
+    public Waypoint exploredFrom;
+
 
     const int grideSize = 10;
 
     
-    public void SetColor(Color color)
+    public void SetTopColor(Color color)
     {
         MeshRenderer meshRenderer = transform.Find("top").GetComponent<MeshRenderer>();
         meshRenderer.material.color = color;
+
     }
 
 
@@ -33,6 +36,15 @@ public class Waypoint : MonoBehaviour
              Mathf.RoundToInt(transform.position.z / grideSize)
 
             );
+    }
+
+
+
+    private void Update()
+    {
+
+        
+ 
     }
 
 

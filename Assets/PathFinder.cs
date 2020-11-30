@@ -11,7 +11,9 @@ public class PathFinder : MonoBehaviour
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
 
-    [SerializeField] bool isRunning = true;
+    bool isRunning = true;
+
+    Waypoint searchCenter;
 
     Vector2Int[] directions = {
         Vector2Int.up, 
@@ -33,25 +35,23 @@ public class PathFinder : MonoBehaviour
         queue.Enqueue(StartCube);
         while (queue.Count > 0 && isRunning)
         {
-            var searchCenter = queue.Dequeue();
-            print("Searching from: " +  searchCenter);
-            HalfIfEndFound(searchCenter);
-            ExploreNeighbor(searchCenter);
+            searchCenter = queue.Dequeue();
+            HalfIfEndFound();
+            ExploreNeighbor();
             searchCenter.isEplored = true;
         }
 
     }
 
-    void HalfIfEndFound(Waypoint searchCenter)
+    void HalfIfEndFound()
     {
         if (searchCenter == EndCube)
         {
-            print("Stopped it's The same!");
             isRunning = false;
         }
     }
 
-    void ExploreNeighbor(Waypoint searchCenter) 
+    void ExploreNeighbor() 
     {
         if (!isRunning) { return; };
         foreach (Vector2Int direction in directions)
@@ -72,23 +72,23 @@ public class PathFinder : MonoBehaviour
     void QueueNewNeighbour(Vector2Int exploredCoor)
     {
         Waypoint neighbour = grid[exploredCoor];
-        if (neighbour.isEplored)
+        if (neighbour.isEplored || queue.Contains(neighbour))
         {
             return;
         }
         else
         {
-            neighbour.SetColor(Color.blue);
+
             queue.Enqueue(neighbour);
-            print("Queueing : " + neighbour);
+            neighbour.exploredFrom = searchCenter;
         }
         
     }
 
     void Coloring()
     {
-        StartCube.SetColor(Color.green);    //StartCube an object have an script have this func
-        EndCube.SetColor(Color.red);        //EndCube an object have an script have this func
+        StartCube.SetTopColor(Color.green);    //StartCube an object have an script have this func
+        EndCube.SetTopColor(Color.red);        //EndCube an object have an script have this func
     }
 
     void CountBlocks()
@@ -105,6 +105,7 @@ public class PathFinder : MonoBehaviour
             else
             {
                 grid.Add(gridPos, waypoint);
+
             }
         }
 
