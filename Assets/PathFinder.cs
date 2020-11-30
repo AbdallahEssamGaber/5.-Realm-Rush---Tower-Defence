@@ -6,13 +6,12 @@ using UnityEngine;
 public class PathFinder : MonoBehaviour
 {
 
-    [SerializeField] Waypoint StartCube, EndCube;
+     [SerializeField] public Waypoint StartCube, EndCube;
 
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
 
     bool isRunning = true;
-
     Waypoint searchCenter;
 
     Vector2Int[] directions = {
@@ -23,14 +22,54 @@ public class PathFinder : MonoBehaviour
     };
 
 
-    void Start()
+    List<Waypoint> path = new List<Waypoint>();
+
+
+
+    public List<Waypoint> GetPath()
     {
         CountBlocks();
-        PathFinde();
-        Coloring();
+        StartAndEndColoring();
+        BreadthFirstSearch();
+        FormingPath();
+        return path;
     }
 
-    void PathFinde()
+    void CountBlocks()
+    {
+
+        var waypoints = FindObjectsOfType<Waypoint>();
+        foreach (Waypoint waypoint in waypoints)
+        {
+            var gridPos = waypoint.GetGridPos();
+            if (grid.ContainsKey(gridPos))
+            {
+                Debug.LogWarning("The " + gridPos + " Is Repeated!!");
+            }
+            else
+            {
+                grid.Add(gridPos, waypoint);
+
+            }
+        }
+
+    }
+
+
+
+    void StartAndEndColoring()
+    {
+        StartCube.SetColor(Color.green);    //StartCube an object have an script have this func
+        EndCube.SetColor(Color.red);        //EndCube an object have an script have this func
+    }
+
+
+
+
+
+
+
+    void BreadthFirstSearch()
     {
         queue.Enqueue(StartCube);
         while (queue.Count > 0 && isRunning)
@@ -42,6 +81,7 @@ public class PathFinder : MonoBehaviour
         }
 
     }
+
 
     void HalfIfEndFound()
     {
@@ -58,14 +98,11 @@ public class PathFinder : MonoBehaviour
         {
             
             Vector2Int neighborCoor = searchCenter.GetGridPos() + direction;
-            try
+            if(grid.ContainsKey(neighborCoor))
             {
                 QueueNewNeighbour(neighborCoor);
             }
-            catch
-            {
-               
-            }
+
         }
     }
 
@@ -85,31 +122,24 @@ public class PathFinder : MonoBehaviour
         
     }
 
-    void Coloring()
+
+
+
+
+    void FormingPath()
     {
-        StartCube.SetTopColor(Color.green);    //StartCube an object have an script have this func
-        EndCube.SetTopColor(Color.red);        //EndCube an object have an script have this func
-    }
-
-    void CountBlocks()
-     {
-
-        var waypoints = FindObjectsOfType<Waypoint>();
-        foreach(Waypoint waypoint in waypoints)
+        path.Add(EndCube);
+        Waypoint previous = EndCube.exploredFrom;
+        while (previous != StartCube)
         {
-            var gridPos = waypoint.GetGridPos();
-            if (grid.ContainsKey(gridPos))
-            {
-                Debug.LogWarning("The " + gridPos + " Is Repeated!!");
-            }
-            else
-            {
-                grid.Add(gridPos, waypoint);
-
-            }
+            path.Add(previous);
+            previous = previous.exploredFrom;
         }
 
-      }
+        path.Add(StartCube);
+        path.Reverse();
+    }
 
-    
+
+
 }

@@ -1,34 +1,44 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-
-
-    [SerializeField] List<Waypoint> path;
-
+    PathFinder pathFinder;
     void Start()
     {
-        
-        StartCoroutine(FollowPath());
 
+
+        pathFinder = FindObjectOfType<PathFinder>();
+        var path = pathFinder.GetPath();
+        
+        StartCoroutine(FollowPath(path));
+        
     }
-    
-    IEnumerator FollowPath()
+
+    IEnumerator FollowPath(List<Waypoint> path)
     {
-        print("Strating patrol....");
         foreach (Waypoint waypoint in path)
         {
             Vector3 palying;
             palying.x = waypoint.transform.position.x;
             palying.z = waypoint.transform.position.z;
             transform.position = new Vector3(palying.x, gameObject.transform.position.y, palying.z);
-            print("Visiting block: " + waypoint.name);
-
+            
             yield return new WaitForSeconds(1);
+
+            ColoringBypassing(waypoint);
+            
         }
-        print("Ending patrol");
+        
     }
-    
+
+    void ColoringBypassing(Waypoint waypoint)
+    {
+        if(waypoint != pathFinder.StartCube && waypoint != pathFinder.EndCube)
+        {
+            waypoint.SetColor(Color.blue);
+        }
+    }
 }
