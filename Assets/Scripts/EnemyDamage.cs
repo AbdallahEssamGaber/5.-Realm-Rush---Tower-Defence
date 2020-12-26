@@ -11,7 +11,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (hits == 0)
+        if (hits <= 0)
         { 
             Destroy(gameObject);
             return;
