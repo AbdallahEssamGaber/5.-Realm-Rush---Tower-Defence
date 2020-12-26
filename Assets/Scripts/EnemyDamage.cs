@@ -6,10 +6,18 @@ public class EnemyDamage : MonoBehaviour
 {
 
     [SerializeField] Collider collisionMesh;
-  
+
+    int hits = 10;
 
     private void OnParticleCollision(GameObject other)
     {
-        print("Hit Here!");
+        if (hits == 0)
+        { 
+            Destroy(gameObject);
+            return;
+        }
+        hits--;
+        print("Hit Here!, the hits num: " + hits);
+
     }
 }
