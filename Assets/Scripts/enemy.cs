@@ -26,7 +26,7 @@ public class enemy : MonoBehaviour
             palying.z = waypoint.transform.position.z;
             transform.position = new Vector3(palying.x, gameObject.transform.position.y, palying.z);
             
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2f);
 
             ColoringBypassing(waypoint);
             
