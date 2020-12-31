@@ -9,6 +9,8 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform objectEnemy;
     [SerializeField] float range = 10f;
     [SerializeField] ParticleSystem shootParticle;
+    [SerializeField] GameObject destroyParticle;
+
 
     void Update()
     {
