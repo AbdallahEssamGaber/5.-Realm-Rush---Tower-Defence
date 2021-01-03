@@ -13,9 +13,16 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+
         destroyParticle.SetActive(true);
 
      
+
+        if (hits == 0)
+        { 
+            Destroy(gameObject);
+            return;
+        }
         hits--;
         print("Hit Here!, the hits num: " + hits);
         StartCoroutine(LateCall());
