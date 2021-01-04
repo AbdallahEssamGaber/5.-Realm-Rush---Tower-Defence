@@ -28,10 +28,15 @@ public class PathFinder : MonoBehaviour
 
     public List<Waypoint> GetPath()
     {
-        CountBlocks();
-        StartAndEndColoring();
-        BreadthFirstSearch();
-        FormingPath();
+        if (path.Count == 0)
+        {
+            CountBlocks();
+            StartAndEndColoring();
+            BreadthFirstSearch();
+            FormingPath();
+        }
+            
+      
         return path;
     }
 
