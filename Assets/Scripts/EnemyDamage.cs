@@ -17,7 +17,7 @@ public class EnemyDamage : MonoBehaviour
             return;
         }
         hits--;
-        print("Hit Here!, the hits num: " + hits);
+
 
     }
 }

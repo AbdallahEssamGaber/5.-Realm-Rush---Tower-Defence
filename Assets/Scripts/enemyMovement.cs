@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class enemyMovement : MonoBehaviour
 {
     PathFinder pathFinder;
     void Start()
