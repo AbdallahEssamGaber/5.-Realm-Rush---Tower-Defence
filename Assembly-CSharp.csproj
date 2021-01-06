@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Assets\AssetsPack\AurynSky\Forest Pack\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\Tower.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\AssetsPack\AurynSky\Forest Pack\Scripts\MaterialMover.cs" />
     <Compile Include="Assets\Scripts\enemyMovement.cs" />
     <Compile Include="Assets\Scripts\CubeEditor.cs" />
@@ -65,7 +66,7 @@
     <Compile Include="Assets\AssetsPack\AurynSky\Forest Pack\Scripts\ChestDemo.cs" />
     <Compile Include="Assets\Scripts\EnemyDamage.cs" />
     <Compile Include="Assets\Scripts\PathFinder.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\MouseThing.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />

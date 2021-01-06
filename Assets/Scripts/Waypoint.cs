@@ -13,13 +13,7 @@ public class Waypoint : MonoBehaviour
     const int grideSize = 10;
 
     
-    public void SetColor(Color color)
-    {
-        MeshRenderer meshRenderer = transform.Find("top").GetComponent<MeshRenderer>();
-        meshRenderer.material.color = color;
-
-    }
-
+ 
 
     public int GetGrideSize()
     {
@@ -39,6 +33,11 @@ public class Waypoint : MonoBehaviour
     }
 
 
+
+    void OnMouseOver()
+    {
+        Debug.Log("Mouse is over " + gameObject);
+    }
 
   
 

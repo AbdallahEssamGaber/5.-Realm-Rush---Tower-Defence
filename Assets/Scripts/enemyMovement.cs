@@ -28,17 +28,11 @@ public class enemyMovement : MonoBehaviour
             
             yield return new WaitForSeconds(2f);
 
-            ColoringBypassing(waypoint);
+           
             
         }
         
     }
 
-    void ColoringBypassing(Waypoint waypoint)
-    {
-        if(waypoint != pathFinder.StartCube && waypoint != pathFinder.EndCube)  //Coloring passing waypoints unless start&end one
-        {
-            waypoint.SetColor(Color.blue);
-        }
-    }
+ 
 }

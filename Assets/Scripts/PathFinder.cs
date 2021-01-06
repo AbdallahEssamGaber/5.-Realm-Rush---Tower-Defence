@@ -31,7 +31,6 @@ public class PathFinder : MonoBehaviour
         if (path.Count == 0)
         {
             CountBlocks();
-            StartAndEndColoring();
             BreadthFirstSearch();
             FormingPath();
         }
@@ -62,11 +61,7 @@ public class PathFinder : MonoBehaviour
 
 
 
-    void StartAndEndColoring()
-    {
-        StartCube.SetColor(Color.green);    //StartCube an object have an script have this func
-        EndCube.SetColor(Color.red);        //EndCube an object have an script have this func
-    }
+
 
 
 

@@ -12,6 +12,7 @@ public class CubeEditor : MonoBehaviour
     Waypoint waypoint;
 
 
+
     void Awake()
     {
         waypoint = GetComponent<Waypoint>();
@@ -44,4 +45,7 @@ public class CubeEditor : MonoBehaviour
         textMesh.text = labelText;
         gameObject.name = labelText;
     }
+
+  
+
 }
