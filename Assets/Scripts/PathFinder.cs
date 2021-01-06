@@ -6,7 +6,7 @@ using UnityEngine;
 public class PathFinder : MonoBehaviour
 {
 
-     [SerializeField] public Waypoint StartCube, EndCube;   //Public cuz i want to use it in enemy script
+    [SerializeField] public Waypoint StartCube, EndCube;   //Public cuz i want to use it in enemy script
 
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
@@ -15,7 +15,7 @@ public class PathFinder : MonoBehaviour
     Waypoint searchCenter;
 
     Vector2Int[] directions = {
-        Vector2Int.up, 
+        Vector2Int.up,
         Vector2Int.right,
         Vector2Int.down,
         Vector2Int.left
@@ -34,8 +34,8 @@ public class PathFinder : MonoBehaviour
             BreadthFirstSearch();
             FormingPath();
         }
-            
-      
+
+
         return path;
     }
 
@@ -91,14 +91,14 @@ public class PathFinder : MonoBehaviour
         }
     }
 
-    void ExploreNeighbor() 
+    void ExploreNeighbor()
     {
         if (!isRunning) { return; };
         foreach (Vector2Int direction in directions)
         {
-            
+
             Vector2Int neighborCoor = searchCenter.GetGridPos() + direction;
-            if(grid.ContainsKey(neighborCoor))
+            if (grid.ContainsKey(neighborCoor))
             {
                 QueueNewNeighbour(neighborCoor);
             }
@@ -119,7 +119,7 @@ public class PathFinder : MonoBehaviour
             queue.Enqueue(neighbour);
             neighbour.exploredFrom = searchCenter;
         }
-        
+
     }
 
 
@@ -128,18 +128,23 @@ public class PathFinder : MonoBehaviour
 
     void FormingPath()
     {
-        path.Add(EndCube);
+        AddPath(EndCube);
+
         Waypoint previous = EndCube.exploredFrom;
         while (previous != StartCube)
         {
-            path.Add(previous);
+            AddPath(previous);
             previous = previous.exploredFrom;
         }
 
-        path.Add(StartCube);
+        AddPath(StartCube);
         path.Reverse();
     }
 
 
-
+    void AddPath(Waypoint waypoint)
+    {
+        path.Add(waypoint);
+        waypoint.isReplacment = false;
+    }
 }

@@ -8,7 +8,7 @@ public class Waypoint : MonoBehaviour
 
     public bool isEplored = false;
     public Waypoint exploredFrom;
-
+    public bool isReplacment = true;
 
     const int grideSize = 10;
 
@@ -34,11 +34,19 @@ public class Waypoint : MonoBehaviour
 
 
 
-    void OnMouseOver()
+   
+    void OnMouseDown()
     {
-        Debug.Log("Mouse is over " + gameObject);
+        if(isReplacment)
+        {
+            Debug.Log("It can be her " + gameObject);
+        }
+        else
+        {
+            Debug.Log("It cant be her " + gameObject);
+        }
     }
-
+ 
   
 
 
