@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2794239945404221843}
   - component: {fileID: 1335510676166536994}
   - component: {fileID: 1592019036532838558}
+  - component: {fileID: 7554065770116309373}
   m_Layer: 0
   m_Name: -2,7
   m_TagString: Untagged
@@ -157,6 +158,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEplored: 0
   exploredFrom: {fileID: 0}
+  isReplacment: 1
+  towerPrefab: {fileID: 3114342966038517423, guid: 7bf5197d70cdbfa45a8911ccbd82316d, type: 3}
+--- !u!65 &7554065770116309373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015093852946666626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!1 &8597947178356492362
 GameObject:
   m_ObjectHideFlags: 0

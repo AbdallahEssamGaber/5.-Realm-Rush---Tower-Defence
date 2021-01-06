@@ -8,12 +8,13 @@ public class Waypoint : MonoBehaviour
 
     public bool isEplored = false;
     public Waypoint exploredFrom;
-    public bool isReplacment = true;
+    public bool isPlacement = true;
 
     const int grideSize = 10;
 
-    
- 
+    [SerializeField] Tower towerPrefab;
+
+
 
     public int GetGrideSize()
     {
@@ -37,9 +38,10 @@ public class Waypoint : MonoBehaviour
    
     void OnMouseDown()
     {
-        if(isReplacment)
+        if(isPlacement)
         {
-            Debug.Log("It can be her " + gameObject);
+            Instantiate(towerPrefab, new Vector3(transform.position.x, 10.5f, transform.position.z), Quaternion.identity);
+            isPlacement = false;
         }
         else
         {

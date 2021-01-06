@@ -145,6 +145,6 @@ public class PathFinder : MonoBehaviour
     void AddPath(Waypoint waypoint)
     {
         path.Add(waypoint);
-        waypoint.isReplacment = false;
+        waypoint.isPlacement = false;
     }
 }
