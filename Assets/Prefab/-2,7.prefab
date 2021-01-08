@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4015093852946666626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 70}
+  m_LocalPosition: {x: -20, y: -10.02, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7035211213688291235}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEplored: 0
   exploredFrom: {fileID: 0}
-  isReplacment: 1
+  isPlacement: 1
   towerPrefab: {fileID: 3114342966038517423, guid: 7bf5197d70cdbfa45a8911ccbd82316d, type: 3}
 --- !u!65 &7554065770116309373
 BoxCollider:

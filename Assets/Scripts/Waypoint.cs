@@ -40,7 +40,7 @@ public class Waypoint : MonoBehaviour
     {
         if(isPlacement)
         {
-            Instantiate(towerPrefab, new Vector3(transform.position.x, 10.5f, transform.position.z), Quaternion.identity);
+            Instantiate(towerPrefab, new Vector3(transform.position.x, 10, transform.position.z), Quaternion.identity);
             isPlacement = false;
         }
         else
