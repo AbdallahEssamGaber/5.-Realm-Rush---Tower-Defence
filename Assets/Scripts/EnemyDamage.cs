@@ -23,7 +23,6 @@ public class EnemyDamage : MonoBehaviour
         }
 
         hits--;
-        print(hits);
         hitParticle.Play();
 
 
