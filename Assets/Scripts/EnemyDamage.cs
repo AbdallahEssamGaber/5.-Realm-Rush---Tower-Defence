@@ -16,8 +16,10 @@ public class EnemyDamage : MonoBehaviour
     {
         if (hits == 0)
         {
-            Instantiate(deathParticle, transform.position, Quaternion.identity);
+            var vfx = Instantiate(deathParticle, transform.position, Quaternion.identity);
 
+            
+            Destroy(vfx.gameObject, vfx.main.duration);
             Destroy(gameObject);
             return;
         }

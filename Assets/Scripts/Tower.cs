@@ -11,6 +11,9 @@ public class Tower : MonoBehaviour
     [SerializeField] ParticleSystem shootParticle;
 
 
+    public Waypoint towerBase;
+
+
     Transform objectEnemy;
 
     void Update()

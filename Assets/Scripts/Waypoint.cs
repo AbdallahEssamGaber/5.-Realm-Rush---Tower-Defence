@@ -8,10 +8,9 @@ public class Waypoint : MonoBehaviour
 
     public bool isEplored = false;
     public Waypoint exploredFrom;
-    public bool isPlacement = true;
+    public bool isPlaceable = true;
 
     const int grideSize = 10;
-
 
 
 
@@ -37,7 +36,7 @@ public class Waypoint : MonoBehaviour
    
     void OnMouseDown()
     {
-        if(isPlacement)
+        if(isPlaceable)
         {
             FindObjectOfType<TowerFactory>().CreatTower(this);
         }
