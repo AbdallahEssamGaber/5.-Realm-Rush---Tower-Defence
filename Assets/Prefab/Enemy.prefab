@@ -19327,6 +19327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8998545c324ea948af1feb1ae4b8fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winParticle: {fileID: 198537984209914932, guid: 807f2006d383c8947b5aac72d5cbbecf, type: 3}
 --- !u!114 &960841459
 MonoBehaviour:
   m_ObjectHideFlags: 0

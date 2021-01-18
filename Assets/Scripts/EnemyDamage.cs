@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,11 +17,9 @@ public class EnemyDamage : MonoBehaviour
     {
         if (hits == 0)
         {
-            var vfx = Instantiate(deathParticle, transform.position, Quaternion.identity);
-
             
-            Destroy(vfx.gameObject, vfx.main.duration);
-            Destroy(gameObject);
+            DeathThing();
+          
             return;
         }
 
@@ -29,7 +28,11 @@ public class EnemyDamage : MonoBehaviour
 
 
     }
-    
 
-
+    public void DeathThing()
+    {
+        var vfx = Instantiate(deathParticle, transform.position, Quaternion.identity);
+        Destroy(vfx.gameObject, vfx.main.duration);
+        Destroy(gameObject);
+    }
 }

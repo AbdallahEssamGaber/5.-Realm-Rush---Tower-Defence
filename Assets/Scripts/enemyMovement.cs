@@ -6,6 +6,9 @@ using UnityEngine;
 public class enemyMovement : MonoBehaviour
 {
     PathFinder pathFinder;
+
+    [SerializeField] ParticleSystem winParticle;
+
     void Start()
     {
 
@@ -26,12 +29,17 @@ public class enemyMovement : MonoBehaviour
             palying.z = waypoint.transform.position.z;
             transform.position = new Vector3(palying.x, gameObject.transform.position.y, palying.z);
             
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.2f);
 
            
             
         }
-        
+
+        var vfx = Instantiate(winParticle, transform.position, Quaternion.identity);
+        Destroy(vfx.gameObject, vfx.main.duration);
+        Destroy(gameObject);
+
+
     }
 
  
