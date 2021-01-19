@@ -42,7 +42,6 @@ public class Waypoint : MonoBehaviour
         }
         else
         {
-            Debug.Log("It cant be her " + gameObject);
         }
     }
  

@@ -11,6 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField] ParticleSystem shootParticle;
 
 
+
     public Waypoint towerBase;
 
 
@@ -77,5 +78,7 @@ public class Tower : MonoBehaviour
     {
         var emissionModule = shootParticle.emission;
         emissionModule.enabled = isActive;
+
+
     }
 }
