@@ -2945,7 +2945,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textOfDiedEnemeis: {fileID: 0}
   enemydamage: {fileID: 9195213033708627839, guid: 59396d28ebe2e744bb1154cc4f4146b1, type: 3}
-  nOfDiedEnemeis: 0
 --- !u!1001 &1375377040278410179
 PrefabInstance:
   m_ObjectHideFlags: 0

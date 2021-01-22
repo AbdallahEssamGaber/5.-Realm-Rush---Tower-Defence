@@ -9,6 +9,8 @@ public class enemyMovement : MonoBehaviour
 
     [SerializeField] ParticleSystem winParticle;
     [SerializeField] AudioClip baseSFX;
+    [SerializeField] GameObject dieSFX;
+
     void Start()
     {
 

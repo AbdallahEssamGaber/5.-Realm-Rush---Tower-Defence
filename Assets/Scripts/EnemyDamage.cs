@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
@@ -11,29 +12,30 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] ParticleSystem deathParticle;
     [SerializeField] AudioClip shootSFX;
     [SerializeField] AudioClip dieSFX;
-    [SerializeField] PrintDE printde;
-
-    public static int hits = 3;
 
 
+    public static int hits = 10;
 
- 
 
-void OnParticleCollision(GameObject other)
+
+
+
+   
+
+
+    void OnParticleCollision(GameObject other)
     {
         if (hits == 0)
         {
-            print(printde.nOfDiedEnemeis);
-            printde.nOfDiedEnemeis++;
-            
-      
+
+            PrintDE.enter = true;
             DeathThing();
 
 
             return;
         }
 
-        hits--;
+        hits-=10;
         hitParticle.Play();
 
         
@@ -54,7 +56,7 @@ void OnParticleCollision(GameObject other)
 
         AudioSource.PlayClipAtPoint(dieSFX, Camera.main.transform.position);
 
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
 
        
 

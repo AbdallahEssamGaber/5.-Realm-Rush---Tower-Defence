@@ -66,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winParticle: {fileID: 198537984209914932, guid: 807f2006d383c8947b5aac72d5cbbecf, type: 3}
   baseSFX: {fileID: 8300000, guid: 15df3456fa2a105418a565bc9cc81870, type: 3}
+  dieSFX: {fileID: 0}
 --- !u!114 &9195213033708627839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +84,6 @@ MonoBehaviour:
   deathParticle: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
   shootSFX: {fileID: 8300000, guid: 883726645ad53284997ea251218df8ed, type: 3}
   dieSFX: {fileID: 8300000, guid: 74983a675187cd94382388b44cf68754, type: 3}
-  printde: {fileID: 1375377040602719878, guid: ead514ee384d97c4faf63bf8fa7a4320, type: 3}
 --- !u!82 &9195213033725996100
 AudioSource:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ if its easy make it more harder and if the user is hulk and can pass all of this
 
 
 
-([D w the simple things>show every enemy health if its make sense] - [D->when the tower heath ends done repeat])
+([D w the simple things>show every enemy health if its make sense] - [D->when the base heath ends done repeat])
 
 
 enemy health on the every enemy maybe
