@@ -18,7 +18,7 @@ public class TowerFactory : MonoBehaviour
 
     private void Start()
     {
-        towersNumber.text = "T n: " + towerQueue.Count.ToString();
+        towersNumber.text = "T n: " + maxTowers.ToString();
     }
 
 
@@ -55,7 +55,7 @@ public class TowerFactory : MonoBehaviour
 
         maxTowers--;
 
-        towersNumber.text = "T n: " + towerQueue.Count.ToString();
+        towersNumber.text = "T n: " + maxTowers.ToString();
     }
 
 
@@ -63,7 +63,7 @@ public class TowerFactory : MonoBehaviour
     void MoveExistingTower(Waypoint waypointCube)
     {
 
-        towersNumber.text = "T n: " + towerQueue.Count.ToString() + " No More:(";
+        towersNumber.text = "T n: " + maxTowers.ToString();
 
         var oldTower = towerQueue.Dequeue();
 

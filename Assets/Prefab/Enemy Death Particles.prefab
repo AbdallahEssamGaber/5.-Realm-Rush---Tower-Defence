@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4880516520874804}
   - component: {fileID: 198641315250294978}
   - component: {fileID: 199748467730340480}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Inner Mass Chunks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 4475396402658506}
   - component: {fileID: 198215428582040142}
   - component: {fileID: 199113155619613730}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Back Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9635,7 +9635,7 @@ GameObject:
   - component: {fileID: 4980733585262516}
   - component: {fileID: 198579650134916736}
   - component: {fileID: 199901880920316678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: White Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14447,7 +14447,7 @@ GameObject:
   - component: {fileID: 4179715831634784}
   - component: {fileID: 198614261362037272}
   - component: {fileID: 199143583539381130}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Black Red Chunks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19259,7 +19259,7 @@ GameObject:
   - component: {fileID: 4932202034452574}
   - component: {fileID: 198537984209914932}
   - component: {fileID: 199362987947312204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy Death Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

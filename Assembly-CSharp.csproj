@@ -62,16 +62,16 @@
     <Compile Include="Assets\AssetsPack\AurynSky\Forest Pack\Scripts\MaterialMover.cs" />
     <Compile Include="Assets\Scripts\enemyMovement.cs" />
     <Compile Include="Assets\Scripts\CubeEditor.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\BaseHealth.cs" />
     <Compile Include="Assets\Scripts\PrintHE.cs" />
     <Compile Include="Assets\Scripts\Waypoint.cs" />
     <Compile Include="Assets\Scripts\PlayDamegeSFX.cs" />
+    <Compile Include="Assets\Scripts\LoadScenes.cs" />
     <Compile Include="Assets\AssetsPack\AurynSky\Forest Pack\Scripts\WheelController.cs" />
     <Compile Include="Assets\AssetsPack\AurynSky\Forest Pack\Scripts\ChestDemo.cs" />
     <Compile Include="Assets\Scripts\EnemyDamage.cs" />
     <Compile Include="Assets\Scripts\PathFinder.cs" />
     <Compile Include="Assets\Scripts\PrintDE.cs" />
-    <Compile Include="Assets\LoadScenes.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />

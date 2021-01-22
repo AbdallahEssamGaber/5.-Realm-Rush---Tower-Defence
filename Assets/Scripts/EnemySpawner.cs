@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(enemyprefab, transform.position, Quaternion.identity).transform.parent = gameObject.transform;
 
-            EnemyDamage.hits = 3;
+            EnemyDamage.hits = 10;
 
             GetComponent<AudioSource>().PlayOneShot(SpawnedSFX);
 

@@ -5,27 +5,37 @@ using UnityEngine;
 
 public class PrintDE : MonoBehaviour
 {
-    [SerializeField] Text textOfDiedEnemeis;
-    [SerializeField] EnemyDamage enemydamage;
+    [SerializeField] Text enemyDeadText;
+    [SerializeField] LoadScenes loader;
+
+    public static bool enter = false; //to control it from enemyDamege
+
+    int nOfDaedEnemies;
 
 
-    public int nOfDiedEnemeis = 1;
+
 
     void Start()
     {
-        //print("HDRDisplaySupportFlags");
-      textOfDiedEnemeis.text = nOfDiedEnemeis.ToString() + "/5";
+        enemyDeadText.text = nOfDaedEnemies.ToString() + "/5";
     }
-
-
-
-
 
     void Update()
     {
-        print(nOfDiedEnemeis);
-        textOfDiedEnemeis.text = nOfDiedEnemeis.ToString() + "/5";
+
+        if(nOfDaedEnemies >= 5)
+        {
+            loader.WinLoad();
+        }
+
+        if (enter)
+        {
+            nOfDaedEnemies++;
+            enemyDeadText.text = nOfDaedEnemies.ToString() + "/5";
+
+            enter = false;   //to make it enter her just one time cuz its Update
+        }
     }
 
-   
+
 }
