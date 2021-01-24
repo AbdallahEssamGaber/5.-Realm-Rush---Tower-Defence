@@ -11,6 +11,9 @@ public class enemyMovement : MonoBehaviour
     [SerializeField] AudioClip baseSFX;
     [SerializeField] GameObject dieSFX;
 
+
+
+    public static float speedOfTheE = 0.5f;
     void Start()
     {
 
@@ -31,7 +34,7 @@ public class enemyMovement : MonoBehaviour
             palying.z = waypoint.transform.position.z;
             transform.position = new Vector3(palying.x, gameObject.transform.position.y, palying.z);
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(speedOfTheE);
 
            
             

@@ -20,6 +20,9 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
+
+
+
             Instantiate(enemyprefab, transform.position, Quaternion.identity).transform.parent = gameObject.transform;
 
             EnemyDamage.hits = 10;
@@ -28,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
             yield return new WaitForSeconds(secondsBetweenSpawns);
 
-            
+
 
         }
 
