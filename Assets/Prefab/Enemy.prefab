@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winParticle: {fileID: 198537984209914932, guid: 807f2006d383c8947b5aac72d5cbbecf, type: 3}
-  baseSFX: {fileID: 8300000, guid: 15df3456fa2a105418a565bc9cc81870, type: 3}
+  baseSFX: {fileID: 8300000, guid: 7ca8ae9e178f4a14289f90a61f53c88a, type: 3}
   dieSFX: {fileID: 0}
   handlerin: {fileID: 258923821}
   speedOfTheE: 0.5
@@ -256,8 +256,8 @@ MonoBehaviour:
   collisionMesh: {fileID: 9195213034613817720}
   hitParticle: {fileID: 8674647064504218119}
   deathParticle: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
-  shootSFX: {fileID: 8300000, guid: 883726645ad53284997ea251218df8ed, type: 3}
-  dieSFX: {fileID: 8300000, guid: 74983a675187cd94382388b44cf68754, type: 3}
+  shootSFX: {fileID: 8300000, guid: 4b2aeb16098775347b48c66b5039c6f0, type: 3}
+  dieSFX: {fileID: 8300000, guid: 8692d72574025f54bbf743220ad594b0, type: 3}
   hitsAlways: {fileID: 244562418}
   enemyS: {fileID: 9195213033229133976}
   handlerin: {fileID: 258923821}
@@ -274,7 +274,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 0
   Mute: 0
