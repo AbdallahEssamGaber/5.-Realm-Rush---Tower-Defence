@@ -10,20 +10,22 @@ public class enemyMovement : MonoBehaviour
     [SerializeField] ParticleSystem winParticle;
     [SerializeField] AudioClip baseSFX;
     [SerializeField] GameObject dieSFX;
+    [SerializeField] HandlerIn handlerin;
 
 
 
-    public static float speedOfTheE = 0.5f;
+    public float speedOfTheE = 0.8f;
     void Start()
     {
 
-
+        speedOfTheE = handlerin.Speed();
         pathFinder = FindObjectOfType<PathFinder>();
         var path = pathFinder.GetPath();
         
         StartCoroutine(FollowPath(path));
         
     }
+
 
     IEnumerator FollowPath(List<Waypoint> path)
     {
@@ -50,5 +52,9 @@ public class enemyMovement : MonoBehaviour
 
     }
 
- 
+    private void Update()
+    {
+        print(speedOfTheE);
+    }
+
 }

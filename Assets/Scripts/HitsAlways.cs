@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class HitsAlways : MonoBehaviour
 {
+	[SerializeField] TMP_Text test;
+	[SerializeField] EnemyDamage damage;
 
 
-	private void Update()
+	public void Update()
 	{
-		this.GetComponent<TextMeshPro>().text = EnemyDamage.hits.ToString();
+		test.text = damage.hits.ToString();
 	}
 
 }

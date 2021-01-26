@@ -6,7 +6,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    [Range(0, 10)][SerializeField] float secondsBetweenSpawns = 2f;
+    [SerializeField] PrintDE printde;
+
+    [Range(0, 12)][SerializeField] public float secondsBetweenSpawns = 10;
     [SerializeField] enemyMovement enemyprefab;
     [SerializeField] AudioClip SpawnedSFX;
 
@@ -22,14 +24,13 @@ public class EnemySpawner : MonoBehaviour
         {
 
 
+            yield return new WaitForSeconds(secondsBetweenSpawns);
 
             Instantiate(enemyprefab, transform.position, Quaternion.identity).transform.parent = gameObject.transform;
 
-            EnemyDamage.hits = 10;
 
             GetComponent<AudioSource>().PlayOneShot(SpawnedSFX);
 
-            yield return new WaitForSeconds(secondsBetweenSpawns);
 
 
 
@@ -37,7 +38,11 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        secondsBetweenSpawns = printde.CheckAgain();
+
+    }
 
 
-    
 }

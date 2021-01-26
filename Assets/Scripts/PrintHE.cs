@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class PrintHE : MonoBehaviour
 {
     [SerializeField] public Text enemyHealth;
-
+    [SerializeField] EnemyDamage enemyDamage;
 
 
     void Update()
     {
-        enemyHealth.text = EnemyDamage.hits.ToString();
+        enemyHealth.text = enemyDamage.hits.ToString();
 
     }
 }

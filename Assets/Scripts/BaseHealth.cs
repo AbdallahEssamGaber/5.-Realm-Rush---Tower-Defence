@@ -28,6 +28,7 @@ public class BaseHealth : MonoBehaviour
         if(baseHealth <= 1)
         {
             SceneLoaderObj.LoseLoad();
+            PrintDE.nOfDaedEnemies = 0;
 
             return;
         }
